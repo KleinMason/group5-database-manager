@@ -1,6 +1,8 @@
 // import { IInverntoy } from "../models/inventory.model";
 import { RandomService } from "./random.service";
 import { Inventory } from "../models/inventory.model";
+import * as fs from 'fs';
+import * as __path from 'path';
 
 export interface IInventoryService {
     generateInsertStatements(
@@ -19,6 +21,8 @@ export class InventoryService implements IInventoryService {
     
     generateInsertStatements = (productId: number, distributionCenterId: number, 
         sizes?: string[], colors?: string[], gender?: string): Promise<void> => {
+            console.log(`generating insert statement for productId: ${productId}...`);
+            let path: string = __path.join(__dirname, '../../inventory-inserts.txt'); 
             let values: string[] = [];
             const baseInsertStatement: string = 'INSERT INTO `Inventory` VALUES\n';
             sizes.forEach(size => { 
@@ -30,7 +34,15 @@ export class InventoryService implements IInventoryService {
                     values.push("(NULL, " + inventoryItem.toString() + ")")
                 });
             });
-            console.log(baseInsertStatement + values.join(',\n') + ';');
+            let insertStatement: string = baseInsertStatement + values.join(',\n') + ';\n';
+
+            fs.writeFile(path, insertStatement, {flag: 'a'}, err => {
+                if (err) {
+                    console.error(err);
+                    return;
+                }
+            });
+
             return Promise.resolve(); 
     }
 }
