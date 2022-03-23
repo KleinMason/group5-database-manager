@@ -1,0 +1,12 @@
+
+{
+  "port": "3306",
+  "mysqlConfig": {
+    "connectionLimit": 10,
+    "host": "209.106.201.103",
+    "Product": "dbstudent8",
+    "password": "smartpet49",
+    "database": "group5",
+    "waitForConnections": false
+  }
+}
