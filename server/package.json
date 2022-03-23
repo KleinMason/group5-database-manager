@@ -20,10 +20,10 @@
 		"inversify": "^6.0.1",
 		"moment": "^2.29.1",
 		"mysql": "^2.18.1",
-		"mysql-shaman": "^1.0.5",
-		"reflect-metadata": "~0.1.13",
-		"winston": "^3.4.0",
-		"sample-database": "file:../database"
+		"mysql-shaman": "^1.0.8",
+		"reflect-metadata": "^0.1.13",
+		"sample-database": "file:..\\database",
+		"winston": "^3.4.0"
 	},
 	"devDependencies": {
 		"@types/chai": "^4.3.0",

@@ -18,11 +18,11 @@ export class InventoryService implements IInventoryService {
     constructor () { }
     
     private randomService: RandomService = new RandomService();
+    private path: string = __path.join(__dirname, '../../../inventory-inserts.txt'); 
     
     generateInsertStatements = (productId: number, distributionCenterId: number, 
         sizes?: string[], colors?: string[], gender?: string): Promise<void> => {
             console.log(`generating insert statement for productId: ${productId}...`);
-            let path: string = __path.join(__dirname, '../../inventory-inserts.txt'); 
             let values: string[] = [];
             const baseInsertStatement: string = 'INSERT INTO `Inventory` VALUES\n';
             sizes.forEach(size => { 
@@ -35,8 +35,7 @@ export class InventoryService implements IInventoryService {
                 });
             });
             let insertStatement: string = baseInsertStatement + values.join(',\n') + ';\n';
-
-            fs.writeFile(path, insertStatement, {flag: 'a'}, err => {
+            fs.writeFile(this.path, insertStatement, {flag: 'a'}, err => {
                 if (err) {
                     console.error(err);
                     return;
@@ -44,5 +43,14 @@ export class InventoryService implements IInventoryService {
             });
 
             return Promise.resolve(); 
+    }
+
+    createOutputFile = () => {
+        fs.writeFile(this.path, '', err => {
+            if (err) {
+                console.error(err);
+                return;
+            }
+        });
     }
 }

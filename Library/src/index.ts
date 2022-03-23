@@ -11,6 +11,7 @@ let gender: string = 'unisex';
 
 console.log('generating insert statements...')
 
+inventoryService.createOutputFile();
 while (productId <= 97) {
     inventoryService.generateInsertStatements(productId, distributionCenterId, sizes, colors, gender);
     productId++;

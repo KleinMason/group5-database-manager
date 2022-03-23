@@ -1,2 +1,2 @@
-export * from './models/Product';
+export * from './models/inventory';
 export * from './database.context';

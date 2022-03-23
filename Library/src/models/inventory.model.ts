@@ -1,11 +1,12 @@
 export interface IInverntoy {
-    productId: number,
-    distributionCenterId: number,
-    size: string,
-    color: string,
-    quantity: number,
-    gender: string
+    productId: number;
+    distributionCenterId: number;
+    size: string;
+    color: string;
+    quantity: number;
+    gender: string;
 
+    
     toString(): string;
 }
 
