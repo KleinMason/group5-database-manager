@@ -5,14 +5,16 @@ const TYPES = {
   ExpressApplication: "ExpressApplication",
   ApiRouter: "ApiRouter",
   JsonFileService: "JsonFileService",
-  // SampleDatabaseContext: "SampleDatabaseContext",
+  IslandProjectDatabaseContext: "IslandProjectDatabaseContext",
   InventoryService: "InventoryService",
+  ProductService: "ProductService",
   //shaman: {"lifecycle": "transformation", "args": {"type": "compose", "target": "TYPES"}}
 };
 
 const CONTROLLER_TYPES = {
   HealthController: "HealthController",
-  InventoryService: "InventoryService",
+  InventoryController: "InventoryController",
+  ProductController: "ProductController",
   //shaman: {"lifecycle": "transformation", "args": {"type": "compose", "target": "CONTROLLER_TYPES"}}
 }
 

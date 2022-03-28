@@ -1,17 +1,20 @@
 import { DatabaseContext, Collection } from 'mysql-shaman';
 import { Inventory } from './models/inventory';
+import { Product } from './models/product';
 
-export interface ISampleDatabaseContext {
+export interface IIslandProjectDatabaseContext {
   models: {
-    inventory: Collection<Inventory>
+    Inventory: Collection<Inventory>,
+    Product: Collection<Product>
   }
   runQuery: <T>(query: string, args: any) => Promise<T>;
 }
 
-export class SampleDatabaseContext extends DatabaseContext implements ISampleDatabaseContext {
+export class IslandProjectDatabaseContext extends DatabaseContext implements IIslandProjectDatabaseContext {
 
   models = { 
-    inventory: new Collection<Inventory>()
+    Inventory: new Collection<Inventory>(),
+    Product: new Collection<Product>()
   }
 
   runQuery = <T>(query: string, args: any): Promise<T> => {

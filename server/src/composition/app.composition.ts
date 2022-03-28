@@ -11,6 +11,12 @@ import { IApiService, ApiService } from "../api.service";
 import { IJsonFileService, JsonFileService } from "../services/json-file.service";
 import { ApiRouter } from "../api.router";
 import { HealthController } from "../controllers/health/health.controller";
+import { IIslandProjectDatabaseContext, IslandProjectDatabaseContext } from 'sample-database';
+import { IInventoryService, InventoryService } from "../services/inventory.service"
+import { InventoryController } from "../controllers/inventory/inventory.controller";
+import { IProductService, ProductService } from "../services/product.service";
+import { ProductController } from "../controllers/product/product.controller";
+
 //shaman: {"lifecycle": "transformation", "args": {"type": "import", "target": "*"}}
 
 export function Configure(config: AppConfig): Promise<Container> {
@@ -26,6 +32,8 @@ function configureServices(container: Container, config: AppConfig): Promise<Con
   container.bind<express.Application>(TYPES.ExpressApplication).toConstantValue(express());
   container.bind<IJsonFileService>(TYPES.JsonFileService).to(JsonFileService);
   //shaman: {"lifecycle": "transformation", "args": {"type": "compose", "target": "services"}}
+  container.bind<IInventoryService>(TYPES.InventoryService).to(InventoryService);
+  container.bind<IProductService>(TYPES.ProductService).to(ProductService);
   return Promise.resolve(container);
 }
 
@@ -33,12 +41,17 @@ function configureRouter(container: Container): Promise<Container> {
   container.bind<ApiRouter>(TYPES.ApiRouter).to(ApiRouter);
   container.bind<HealthController>(CONTROLLER_TYPES.HealthController).to(HealthController);
   //shaman: {"lifecycle": "transformation", "args": {"type": "compose", "target": "router"}}
+  container.bind<InventoryController>(CONTROLLER_TYPES.InventoryController).to(InventoryController);
+  container.bind<ProductController>(CONTROLLER_TYPES.ProductController).to(ProductController);
   return Promise.resolve(container);
 }
 
 function configureDataContext(container: Container, config: AppConfig): Promise<Container> {
   return new Promise(res => {
     //shaman: {"lifecycle": "transformation", "args": {"type": "compose", "target": "datacontext"}}
+    let context = new IslandProjectDatabaseContext();
+    context.initialize(config.mysqlConfig);
+    container.bind<IIslandProjectDatabaseContext>(TYPES.IslandProjectDatabaseContext).toConstantValue(context);
     res(container);
   });
 }

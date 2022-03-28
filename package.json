@@ -1,0 +1,18 @@
+
+{
+    "name": "group5-database-cli",
+    "version": "1.0.0",
+    "description": "CLI for database maintenance",
+    "main": "index.js",
+    "scripts": {
+      "restore": "shaman install node",
+      "build": "shaman build node",
+      "start": "shaman run sample-server",
+      "debug": "shaman build node && shaman run sample-server"
+    },
+    "author": "Mason Kleinsorge",
+    "license": "UNLICENSED",
+    "dependencies": {
+      "shaman-cli": "^1.0.12"
+    }
+  }

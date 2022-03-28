@@ -1,6 +1,6 @@
-//shaman: {"lifecycle": "transformation", "args": {"type": "import", "target": "*"}}
-
+import { PoolConfig } from 'mysql';
 export class AppConfig {
   port: string;
+  mysqlConfig: PoolConfig;
   //shaman: {"lifecycle": "transformation", "args": {"type": "config", "target": "*"}}
 }
