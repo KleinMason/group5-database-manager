@@ -6,5 +6,4 @@ if __name__ == '__main__':
     router_service = Router_Service()
 
     all_products = router_service.get_all_products()
-    insert_statements = inventory_service.generate_insert_statements(
-        all_products)
+    inventory_service.generate_insert_statements(all_products)
