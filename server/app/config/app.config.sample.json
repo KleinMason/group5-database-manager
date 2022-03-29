@@ -4,7 +4,7 @@
   "mysqlConfig": {
     "connectionLimit": 10,
     "host": "",
-    "Product": "",
+    "user": "",
     "password": "",
     "database": "",
     "waitForConnections": false
