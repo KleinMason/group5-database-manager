@@ -8,7 +8,8 @@
       "restore": "shaman install node",
       "build": "shaman build node",
       "start": "shaman run sample-server",
-      "debug": "shaman build node && shaman run sample-server"
+      "debug": "shaman build node && shaman run sample-server",
+      "generate": "python3 ./library/main_program.py"
     },
     "author": "Mason Kleinsorge",
     "license": "UNLICENSED",
