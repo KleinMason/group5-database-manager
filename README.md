@@ -1,3 +1,3 @@
 # group5-database-manager
 
-Documentation comming soon!
+Documentation coming soon!
