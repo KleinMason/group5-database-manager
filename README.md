@@ -5,7 +5,7 @@
   - python download: https://www.python.org/downloads/
 
 ### Important!
- - After cloning repository, run `npm install` in the parent directory to install needed packages for the server and database node files.
+ - After cloning repository, run `npm install; shaman install` in the parent directory to install needed packages for the server and database node files.
 
 ### Generating inventory dummy data
  - In the parent direcotry, run `cp ./server/app/config/app.config.sample.json ./server/app/config/app.config.json`
