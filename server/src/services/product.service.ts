@@ -5,7 +5,7 @@ import { TYPES } from '../composition/app.composition.types';
 
 export interface IProductService {
     getAllProduct:() => Promise<Product[]>;
-    getProduct:(userId: number) => Promise<Product>;
+    getProduct:(productId: number) => Promise<Product>;
 }
 
 @injectable()
