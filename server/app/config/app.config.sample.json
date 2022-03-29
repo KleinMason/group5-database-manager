@@ -1,12 +1,12 @@
 
 {
-  "port": "",
+  "port": "3000",
   "mysqlConfig": {
     "connectionLimit": 10,
-    "host": "",
-    "user": "",
-    "password": "",
-    "database": "",
+    "host": "{IP Address of Host}",
+    "user": "{Your username}",
+    "password": "{Your password}",
+    "database": "{Name of database to connect to}",
     "waitForConnections": false
   }
 }
