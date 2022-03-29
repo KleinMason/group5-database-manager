@@ -30,7 +30,6 @@ export class InventoryController {
         if (!req.params.inventoryId) return next(new RouteError('Inventory id not provided.', 400));
         let inventoryId = parseInt(req.params.inventoryId);
         if (isNaN(inventoryId)) return next(new RouteError('Invalid inventory id.', 400));
-        console.info('In getInventory');
         return this.inventoryService.getInventory(inventoryId)
             .then(inventory => res.json(inventory))
             .catch((ex: Error) => next(new RouteError(ex.message, 500)));
